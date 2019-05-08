@@ -1,11 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "build": "./node_modules/.bin/lerna publish"
+    "bootstrap": "./node_modules/.bin/lerna bootstrap",
+    "publish": "./node_modules/.bin/lerna publish"
   },
   "dependencies": {
     "lerna": "^3.13.4",
     "typescript": "^3.4.5"
   },
-  "name": "cli"
+  "name": "cli",
+  "workspaces": [
+    "packages/cli"
+  ]
 }
