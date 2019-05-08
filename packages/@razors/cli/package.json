@@ -1,0 +1,10 @@
+{
+  "name": "@razors/cli",
+  "version": "0.0.1",
+  "description": "cli",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
