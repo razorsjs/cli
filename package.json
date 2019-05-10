@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "bootstrap": "./node_modules/.bin/lerna bootstrap",
-    "publish": "./node_modules/.bin/lerna publish"
+    "publish": "./node_modules/.bin/lerna publish",
+    "build": "./node_modules/.bin/lerna run build"
   },
   "dependencies": {
     "lerna": "^3.13.4",
@@ -11,5 +12,14 @@
   "name": "cli",
   "workspaces": [
     "packages/cli"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@razors/presets-typescript": "^0.0.3-alpha.5"
+  }
 }
