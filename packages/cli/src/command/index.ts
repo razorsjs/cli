@@ -1,4 +1,4 @@
-import Init from './Init'
+import Init from './create'
 export function commandInit() {
   Init.init();
 }
