@@ -1,11 +1,11 @@
 import inquirer from 'inquirer';
-import { EventEmitter } from 'events';
+import { Program } from '../program';
 
-export class BaseInquirer extends EventEmitter {
+export class BaseInquirer extends Program {
   protected inquirer: inquirer.Inquirer;
 
   constructor() {
-    super()
+    super();
     this.inquirer = inquirer;
   }
 }
