@@ -1,4 +1,5 @@
 import BaseCommand from './BaseCommand';
+import CreateInquirer from '../inquirer/create';
 
 export class Create extends BaseCommand {
   constructor() {
@@ -10,7 +11,7 @@ export class Create extends BaseCommand {
       .command('create')
       .description('create a project or lerna project or lerna package')
       .action(function() {
-        console.log('setup');
+        CreateInquirer.start();
       });
   }
 }
