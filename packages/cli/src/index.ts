@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import { commandInit } from './command';
-import program from './program';
+import { run } from './program/runtime';
+run();
 
-commandInit();
-program.start();

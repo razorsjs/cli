@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
-import { Program } from '../program';
+import { Razor } from '../program';
 
-export class BaseInquirer extends Program {
+export class BaseInquirer extends Razor {
   protected inquirer: inquirer.Inquirer;
 
   constructor() {

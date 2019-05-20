@@ -1,4 +1,6 @@
-import Init from './create'
-export function commandInit() {
-  Init.init();
-}
+import Create from './create';
+
+export * from './CreateCommand'
+export const commandList = [
+  Create,
+];

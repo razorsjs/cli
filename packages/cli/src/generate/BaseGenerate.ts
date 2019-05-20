@@ -1,4 +1,4 @@
-import { IRazorCliConfig } from '../../types/razorCli';
+import { ICreateConfig } from '../../@types/razorCli';
 import { EventEmitter } from 'events';
 
 export class BaseGenerate extends EventEmitter {
@@ -6,7 +6,7 @@ export class BaseGenerate extends EventEmitter {
     super();
   }
 
-  generate(cli: IRazorCliConfig): void {
+  generate(cli: ICreateConfig): void {
 
   }
 }

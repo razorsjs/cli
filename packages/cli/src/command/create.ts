@@ -1,18 +1,17 @@
-import BaseCommand from './BaseCommand';
+import { BaseCommand } from './AbstractCommand';
 import CreateInquirer from '../inquirer/create';
 
 export class Create extends BaseCommand {
+  name: string = 'create';
+  description: string = 'create a project';
+
   constructor() {
     super();
   }
 
-  init() {
-    this.program
-      .command('create')
-      .description('create a project or lerna project or lerna package')
-      .action(function() {
-        CreateInquirer.start();
-      });
+  action() {
+    console.log(123);
+    CreateInquirer.start()
   }
 }
 
