@@ -1,6 +1,6 @@
-import { commandList, createCommand } from '../command';
+import { commandList, runCommand } from '../command';
 export function run() {
   commandList.forEach(command => {
-    createCommand(command);
+    runCommand(command);
   });
 }

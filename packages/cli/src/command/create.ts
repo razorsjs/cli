@@ -1,4 +1,4 @@
-import { BaseCommand } from './AbstractCommand';
+import { BaseCommand } from '../base/RazorCommand';
 import CreateInquirer from '../inquirer/create';
 
 export class Create extends BaseCommand {
@@ -10,7 +10,6 @@ export class Create extends BaseCommand {
   }
 
   action() {
-    console.log(123);
     CreateInquirer.start()
   }
 }

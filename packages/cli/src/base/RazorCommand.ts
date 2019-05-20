@@ -1,10 +1,10 @@
-import { Razor } from '../program';
+import { RazorCli } from './RazorCli';
 import { Command } from 'commander';
 import * as commander from 'commander';
 
 const program = new commander.Command();
 
-export abstract class BaseCommand {
+export abstract class BaseCommand extends RazorCli {
   abstract name: string;
   abstract description: string;
 
@@ -13,12 +13,12 @@ export abstract class BaseCommand {
   public program: Command;
 
   protected constructor() {
-    // super();
+    super();
     this.program = program;
   }
 }
 
-export abstract class VersionCommand extends Razor {
+export abstract class VersionCommand extends RazorCli {
 
   abstract version: string;
   public program: Command;

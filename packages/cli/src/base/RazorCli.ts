@@ -4,7 +4,7 @@ import { EventEmitter } from 'events';
 import { singleTon } from '../utils/decorators/SingleTon';
 
 @singleTon
-export class Razor extends EventEmitter {
+export class RazorCli extends EventEmitter {
   public version: string;
   public config: ICreateConfig;
 

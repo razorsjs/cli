@@ -1,8 +1,8 @@
-import { BaseInquirer } from './BaseInquirer';
+import { RazorInquirer } from '../base/RazorInquirer';
 import { projectTypeQuestion } from '../question/cn';
 import { beforeHook } from '../utils/decorators/EventEmitter';
 
-export class CreateInquirer extends BaseInquirer {
+export class CreateInquirer extends RazorInquirer {
 
   constructor() {
     super();
