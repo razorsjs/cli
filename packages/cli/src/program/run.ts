@@ -1,5 +1,5 @@
-import { RazorCommand, BaseCommand, VersionCommand } from '../base/RazorCommand';
-import { RazorInquirer } from '../base/RazorInquirer';
+import { RazorCommand, BaseCommand, VersionCommand } from '../base';
+import { RazorInquirer } from '../base';
 
 export function runCommand<T extends RazorCommand>(command: T) {
   if (command instanceof BaseCommand) {

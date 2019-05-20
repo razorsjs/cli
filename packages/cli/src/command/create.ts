@@ -1,7 +1,6 @@
-import { BaseCommand } from '../base/RazorCommand';
-import CreateInquirer from '../inquirer/create';
+import { BaseCommand } from '../base';
 
-export class Create extends BaseCommand {
+export class CreateCommand extends BaseCommand {
   name: string = 'create';
   description: string = 'create a project';
 
@@ -9,9 +8,5 @@ export class Create extends BaseCommand {
     super();
   }
 
-  action() {
-    CreateInquirer.start()
-  }
+  action() {}
 }
-
-export default new Create();

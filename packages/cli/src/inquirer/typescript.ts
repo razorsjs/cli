@@ -1,8 +1,8 @@
 import { RazorInquirer } from '../base';
-import { projectTypeQuestion } from '../question/cn';
+import { typescriptQuestion } from '../question/cn';
 import { beforeHook } from '../utils/decorators/EventEmitter';
 
-export class CreateInquirer extends RazorInquirer {
+export class TypescriptInquirer extends RazorInquirer {
 
   constructor() {
     super();
@@ -11,7 +11,7 @@ export class CreateInquirer extends RazorInquirer {
   @beforeHook()
   async start() {
     const answers = await this.inquirer.prompt([
-      projectTypeQuestion,
+      typescriptQuestion,
     ]);
     Object.assign(this.config, answers);
   }

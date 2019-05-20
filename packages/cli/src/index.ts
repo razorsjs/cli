@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { run } from './program/runtime';
-run();
+import { runSchedule } from './program/runtime';
+runSchedule();
 
