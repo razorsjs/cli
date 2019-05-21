@@ -7,7 +7,7 @@ export class BaseGenerate extends EventEmitter {
   }
 
   generate(cli: ICreateConfig): void {
-
+    console.log(cli);
   }
 }
 

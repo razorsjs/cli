@@ -1,4 +1,4 @@
-import { VersionCommand } from '../base/RazorCommand';
+import { VersionCommand } from '../base';
 import { version } from '../../package.json';
 
 export class Version extends VersionCommand {
@@ -8,5 +8,3 @@ export class Version extends VersionCommand {
     super();
   }
 }
-
-export default new Version();

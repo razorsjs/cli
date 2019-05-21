@@ -1,6 +1,7 @@
 import { RazorInquirer } from '../base';
 import { projectTypeQuestion } from '../question/cn';
 import { beforeHook } from '../utils/decorators/EventEmitter';
+import RazorCli from '../base/RazorCli'
 
 export class CreateInquirer extends RazorInquirer {
 
@@ -13,6 +14,6 @@ export class CreateInquirer extends RazorInquirer {
     const answers = await this.inquirer.prompt([
       projectTypeQuestion,
     ]);
-    Object.assign(this.config, answers);
+    Object.assign(RazorCli.config, answers);
   }
 }

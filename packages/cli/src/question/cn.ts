@@ -21,21 +21,8 @@ export const projectTypeQuestion: Question = {
   ],
 };
 export const typescriptQuestion: Question = {
-  type: 'boolean',
+  type: 'confirm',
   message: '是否使用typescript',
   name: 'isUseTs',
-  choices: [
-    {
-      name: '普通项目',
-      value: EProjectType.PROJECT
-    },
-    {
-      name: 'lerna项目',
-      value: EProjectType.LPROJECT
-    },
-    {
-      name: 'lerna包',
-      value: EProjectType.LPACKAGE
-    },
-  ],
+  default: true
 };

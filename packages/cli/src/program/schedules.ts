@@ -1,4 +1,4 @@
-import { CreateCommand, Version } from '../command';
+import { CreateCommand, Version, End } from '../command';
 import { CreateInquirer, TypescriptInquirer } from '../inquirer';
 
 export const schedules = [
@@ -6,4 +6,5 @@ export const schedules = [
   CreateInquirer,
   TypescriptInquirer,
   Version,
+  End,
 ];
