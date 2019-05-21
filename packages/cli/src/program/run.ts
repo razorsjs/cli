@@ -18,9 +18,9 @@ export function runCommand<T extends RazorCommand>(command: T) {
   }
 }
 
-export function runInquirer(inquirer: RazorInquirer) {
+export async function runInquirer(inquirer: RazorInquirer) {
   if (inquirer instanceof RazorInquirer) {
-    inquirer.start()
+    await inquirer.start()
   } else {
     throw new Error('inquirer must be a subclass of RazorCommand');
   }

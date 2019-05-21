@@ -3,15 +3,14 @@ import { runCommand, runInquirer } from './run';
 import { BaseCommand, VersionCommand, RazorInquirer } from '../base';
 import { RazorCli } from '../base';
 
-export function runSchedule() {
-  schedules.forEach(schedule => {
-    // TODO: RazorCommand
-    const scheduleInstance = new schedule()
+export async function runSchedule() {
+  for (let i = 0; i < schedules.length; i++) {
+    const schedule = schedules[i];
+    const scheduleInstance = new schedule();
     if (scheduleInstance instanceof BaseCommand || scheduleInstance instanceof VersionCommand) {
-      runCommand(scheduleInstance);
+      await runCommand(scheduleInstance);
     } else if (scheduleInstance instanceof RazorInquirer) {
-      runInquirer(scheduleInstance)
+      await runInquirer(scheduleInstance);
     }
-  });
-
+  }
 }
