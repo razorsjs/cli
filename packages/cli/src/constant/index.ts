@@ -3,3 +3,6 @@ export enum EProjectType {
   LPROJECT = 'lerna project',
   LPACKAGE = 'lerna package'
 }
+
+export * from './package'
+

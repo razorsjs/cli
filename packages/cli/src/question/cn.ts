@@ -23,6 +23,6 @@ export const projectTypeQuestion: Question = {
 export const typescriptQuestion: Question = {
   type: 'confirm',
   message: '是否使用typescript',
-  name: 'isUseTs',
+  name: 'useTypescript',
   default: true
 };
