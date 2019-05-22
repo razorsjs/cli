@@ -19,19 +19,23 @@ export class BaseGenerate extends EventEmitter {
   }
 
   generateProject(type: any) {
-    generateConfig.npmList.push(presetsBase);
+    generateConfig.packageList.push(presetsBase);
     if (type === EProjectType.LPROJECT) {
-      generateConfig.npmList.push(lerna);
+      generateConfig.packageList.push(lerna);
       generateConfig.orderList.push('../node_modules/.bin/lerna init');
     }
   }
 
   generateTypescript() {
-    generateConfig.npmList.push(presetsTypescript, typescript);
+    generateConfig.packageList.push(presetsTypescript, typescript);
   }
 
-  run() {
+  generatePresets() {
 
+  }
+
+  async run() {
+    await this.generatePresets()
   }
 }
 

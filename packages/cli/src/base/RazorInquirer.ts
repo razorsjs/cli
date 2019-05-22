@@ -1,4 +1,4 @@
-import inquirer from 'inquirer';
+import { inquirer } from '../commonUtil/index';
 import { RazorCli } from './RazorCli';
 
 export abstract class RazorInquirer extends RazorCli {

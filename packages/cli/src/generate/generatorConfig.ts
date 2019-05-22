@@ -4,7 +4,7 @@ export interface INpmPackage  {
 }
 
 export class GeneratorConfig {
-  public npmList: INpmPackage[] = [];
+  public packageList: INpmPackage[] = [];
   public npmClient: string;
   public orderList: string[] = [];
 
@@ -13,7 +13,7 @@ export class GeneratorConfig {
   }
 
   init() {
-    this.npmList = [];
+    this.packageList = [];
     this.orderList = [];
   }
 }

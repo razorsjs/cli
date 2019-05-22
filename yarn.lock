@@ -1227,6 +1227,12 @@
   version "0.0.3-alpha.6"
   resolved "https://registry.yarnpkg.com/@razors/presets-typescript/-/presets-typescript-0.0.3-alpha.6.tgz#0a27c91b56ad7bc33cfb689b59983efbdc168d35"
 
+"@types/execa@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@types/execa/-/execa-0.9.0.tgz#9b025d2755f17e80beaf9368c3f4f319d8b0fb93"
+  dependencies:
+    "@types/node" "*"
+
 "@types/inquirer@^6.0.2":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@types/inquirer/-/inquirer-6.0.2.tgz#2a1fdc089cc65a485c7410bc32e3fc41afcfa2c7"
