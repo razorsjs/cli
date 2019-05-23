@@ -4,6 +4,7 @@
     "outDir": "dist",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "noImplicitThis": false
+    "noImplicitThis": false,
+    "noImplicitAny": false
   }
 }

@@ -3,14 +3,20 @@ import { ICreateConfig } from '../../@types/razorCli';
 import { EventEmitter } from 'events';
 
 export class RazorCli extends EventEmitter {
+  /**
+   * version of razorCli
+   */
   public version: string;
-  public config: ICreateConfig;
+  /**
+   * createConfig
+   */
+  public createConfig: ICreateConfig;
 
   constructor() {
     super();
 
     this.version = version;
-    this.config = {};
+    this.createConfig = {};
   }
 }
 

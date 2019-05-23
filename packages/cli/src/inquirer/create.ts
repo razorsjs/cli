@@ -14,6 +14,6 @@ export class CreateInquirer extends RazorInquirer {
     const answers = await this.inquirer.prompt([
       projectTypeQuestion,
     ]);
-    Object.assign(RazorCli.config, answers);
+    Object.assign(RazorCli.createConfig, answers);
   }
 }

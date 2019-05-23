@@ -1,20 +1,46 @@
-export interface INpmPackage  {
-  name: string
-  isDep?: boolean
-}
+import { IRazorPkg } from '../../@types/razorCli';
 
 export class GeneratorConfig {
-  public packageList: INpmPackage[] = [];
-  public npmClient: string;
+  /**
+   * package.json
+   */
+  public pkg: IRazorPkg = {
+    dependencies: {},
+    devDependencies: {},
+  };
+  public npmClient: string = 'npm';
+  /**
+   * the orders which run after install
+   */
   public orderList: string[] = [];
 
   constructor() {
-    this.npmClient = 'npm';
+
   }
 
   init() {
-    this.packageList = [];
-    this.orderList = [];
+    this.pkg = {
+      dependencies: {},
+      devDependencies: {},
+    }
+  }
+
+  pushDep(...args: string[]) {
+    if (this.pkg.dependencies) {
+      const dependencies = this.pkg.dependencies;
+      args.forEach(name => {
+        dependencies[name] = 'latest';
+      });
+    }
+  }
+
+  pushDev(...args: string[]) {
+    if (this.pkg.dependencies) {
+      const dependencies = this.pkg.dependencies;
+      args.forEach(name => {
+        dependencies[name] = 'latest';
+      });
+    }
   }
 }
 

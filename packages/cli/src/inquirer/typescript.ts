@@ -14,6 +14,6 @@ export class TypescriptInquirer extends RazorInquirer {
     const answers = await this.inquirer.prompt([
       typescriptQuestion,
     ]);
-    Object.assign(RazorCli.config, answers);
+    Object.assign(RazorCli.createConfig, answers);
   }
 }

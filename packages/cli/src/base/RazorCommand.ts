@@ -41,7 +41,7 @@ export abstract class EndCommand extends EventEmitter {
   }
 
   end() {
-    BaseGenerate.generate(RazorCli.config);
+    BaseGenerate.generate(RazorCli.createConfig);
   }
 }
 

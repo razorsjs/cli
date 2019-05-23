@@ -3,39 +3,50 @@ import { EventEmitter } from 'events';
 import { EProjectType, presetsTypescript } from '../constant';
 import generateConfig from './generatorConfig';
 import { presetsBase, lerna, typescript } from '../constant';
+import { log } from '../utils/decorators/Log';
+import RazorCli from '../base/RazorCli';
+import { execa } from '../commonUtil';
+const config = RazorCli.createConfig;
 
 export class BaseGenerate extends EventEmitter {
   constructor() {
     super();
   }
 
-  generate(config: ICreateConfig): void {
+  generate(): void {
     generateConfig.init();
     this.generateProject(config.type);
     if (config.useTypescript) {
       this.generateTypescript();
     }
-    this.run()
+    this.run();
   }
 
   generateProject(type: any) {
-    generateConfig.packageList.push(presetsBase);
+    generateConfig.pushDev(presetsBase);
     if (type === EProjectType.LPROJECT) {
-      generateConfig.packageList.push(lerna);
+      generateConfig.pushDep(lerna);
       generateConfig.orderList.push('../node_modules/.bin/lerna init');
     }
   }
 
   generateTypescript() {
-    generateConfig.packageList.push(presetsTypescript, typescript);
+    generateConfig.pushDev(presetsTypescript);
+    generateConfig.pushDep(typescript)
   }
 
-  generatePresets() {
-
+  prepareDownload() {
+    generateConfig.pkg.name = 'test'
+    generateConfig.pkg.private = true
   }
 
+  download() {
+    this.prepareDownload();
+  }
+
+  @log('Installing project. This might take a while...')
   async run() {
-    await this.generatePresets()
+    await this.download();
   }
 }
 
