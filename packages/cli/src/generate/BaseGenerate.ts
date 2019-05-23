@@ -6,6 +6,7 @@ import { presetsBase, lerna, typescript } from '../constant';
 import { log } from '../utils/decorators/Log';
 import RazorCli from '../base/RazorCli';
 import { execa } from '../commonUtil';
+import { executeCommand } from '../util/execa';
 const config = RazorCli.createConfig;
 
 export class BaseGenerate extends EventEmitter {
@@ -40,8 +41,13 @@ export class BaseGenerate extends EventEmitter {
     generateConfig.pkg.private = true
   }
 
+  install() {
+    executeCommand(generateConfig.npmClient, [])
+  }
+
   download() {
     this.prepareDownload();
+    this.install()
   }
 
   @log('Installing project. This might take a while...')

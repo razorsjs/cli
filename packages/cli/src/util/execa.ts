@@ -1,5 +1,11 @@
 import { execa } from '../commonUtil';
 
+/**
+ * execute bash command
+ * @param command
+ * @param args
+ * @param targetDir
+ */
 export function executeCommand(command: string,
                                args: any[],
                                targetDir?: string) {
@@ -36,5 +42,3 @@ export function executeCommand(command: string,
     }
   });
 }
-
-executeCommand('yarn',['-v'])
