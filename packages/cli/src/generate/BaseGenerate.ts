@@ -31,7 +31,6 @@ export class BaseGenerate extends EventEmitter {
 
   generateProject(type: any) {
     generateConfig.push(presetsBase);
-    console.log(type);
     if (type === EProjectType.LPROJECT) {
       generateConfig.push(lerna);
       generateConfig.orderList.push({
