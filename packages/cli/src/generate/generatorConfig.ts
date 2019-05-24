@@ -1,4 +1,4 @@
-import { IRazorPkg } from '../../@types/razorCli';
+import { INpmPackage, IOrder, IRazorPkg } from '../../@types/razorCli';
 
 export class GeneratorConfig {
   /**
@@ -12,7 +12,12 @@ export class GeneratorConfig {
   /**
    * the orders which run after install
    */
-  public orderList: string[] = [];
+  public orderList: IOrder[] = [];
+
+  /**
+   * targetDir
+   */
+  public targetDir: string = './'
 
   constructor() {
 
@@ -22,24 +27,28 @@ export class GeneratorConfig {
     this.pkg = {
       dependencies: {},
       devDependencies: {},
+    };
+  }
+
+  push(...args: INpmPackage[]) {
+    args.forEach(pkg => {
+      if (pkg.dependencies) {
+        this.pushDep(pkg);
+      } else {
+        this.pushDev(pkg);
+      }
+    });
+  }
+
+  pushDep(pkg: INpmPackage) {
+    if (this.pkg.dependencies) {
+      this.pkg.dependencies[pkg.name] = pkg.dependencies ? pkg.dependencies : 'latest';
     }
   }
 
-  pushDep(...args: string[]) {
-    if (this.pkg.dependencies) {
-      const dependencies = this.pkg.dependencies;
-      args.forEach(name => {
-        dependencies[name] = 'latest';
-      });
-    }
-  }
-
-  pushDev(...args: string[]) {
-    if (this.pkg.dependencies) {
-      const dependencies = this.pkg.dependencies;
-      args.forEach(name => {
-        dependencies[name] = 'latest';
-      });
+  pushDev(pkg: INpmPackage) {
+    if (this.pkg.devDependencies) {
+      this.pkg.devDependencies[pkg.name] = pkg.devDependencies ? pkg.devDependencies : 'latest';
     }
   }
 }

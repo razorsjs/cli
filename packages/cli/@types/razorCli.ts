@@ -1,5 +1,5 @@
 export interface ICreateConfig {
-  type?: 'project' | 'lerna-project' | 'lerna-package',
+  projectType?: 'project' | 'lerna-project' | 'lerna-package',
   useTypescript?: boolean
 }
 
@@ -10,4 +10,15 @@ export interface IRazorPkg {
   devDependencies?: object,
   private?: boolean
   scripts?: object
+}
+
+export interface INpmPackage {
+  name: string,
+  dependencies?: string,
+  devDependencies?: string
+}
+
+export interface IOrder {
+  command: string,
+  args?: string[]
 }

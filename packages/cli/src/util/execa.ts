@@ -7,16 +7,17 @@ import { execa } from '../commonUtil';
  * @param targetDir
  */
 export function executeCommand(command: string,
-                               args: any[],
+                               args?: any[],
                                targetDir?: string) {
   return new Promise((resolve, reject) => {
     const child = execa(command, args, {
       cwd: targetDir,
+      // TODO:why
       stdio: ['inherit', 'inherit', command === 'yarn' ? 'pipe' : 'inherit'],
     });
     child.on('close', code => {
       if (code !== 0) {
-        reject(`command failed: ${command} ${args.join(' ')}`);
+        reject(`command failed: ${command} ${args && args.join(' ')}`);
         return;
       }
       resolve();

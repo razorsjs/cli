@@ -2,7 +2,7 @@ import { Question } from 'inquirer';
 import {EProjectType} from '../constant';
 
 export const projectTypeQuestion: Question = {
-  type: 'checkbox',
+  type: 'list',
   message: '选择要创建的项目类型',
   name: 'projectType',
   choices: [
