@@ -1,15 +1,14 @@
-import { ICreateConfig } from '../../@types/razorCli';
 import { EventEmitter } from 'events';
 import { EProjectType, presetsTypescript } from '../constant';
 import generateConfig from './generatorConfig';
 import { presetsBase, lerna, typescript } from '../constant';
 import { log } from '../utils/decorators/Log';
 import RazorCli from '../base/RazorCli';
-import { execa } from '../commonUtil';
 import { executeCommand } from '../util/execa';
+import { writeFile, copy } from '../util/file';
 
 const config = RazorCli.createConfig;
-import { writeFile } from '../util/file';
+
 
 export class BaseGenerate extends EventEmitter {
   constructor() {
@@ -53,25 +52,38 @@ export class BaseGenerate extends EventEmitter {
   }
 
   async install() {
+    const order = (generateConfig.orderList.shift()) as any;
+    await executeCommand(order.command, order.args);
+  }
+
+  async executeOrder() {
     for (let i = 0; i < generateConfig.orderList.length; i++) {
       const order = generateConfig.orderList[i];
       await executeCommand(order.command, order.args);
     }
   }
 
-  executeOrder() {
+  async generateFile() {
+    for (let i in RazorCli.files) {
+      const file = RazorCli.files[i];
+      if (typeof file === 'string') {
+        copy(file, RazorCli.targetDir);
+      } else if (typeof file === 'function') {
 
-  }
-
-  download() {
-    this.prepareDownload();
-    this.install();
-    this.executeOrder();
+      }
+    }
   }
 
   @log('Installing project. This might take a while...')
   async run() {
-    await this.download();
+    /* prepare */
+    this.prepareDownload();
+    /* install npm package */
+    this.install();
+    /* generate base file */
+    this.generateFile();
+    /* execute order */
+    await this.executeOrder();
   }
 }
 

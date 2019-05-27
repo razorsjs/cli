@@ -1,3 +1,4 @@
-import fs from 'fs-extra';
+import { fs } from '../commonUtil';
 
-export const writeFile = fs.writeFile
+export const writeFile = fs.writeFile;
+export const copy = fs.copy;

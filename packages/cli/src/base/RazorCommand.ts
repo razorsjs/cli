@@ -1,4 +1,3 @@
-import RazorCli from './RazorCli';
 import { Command } from 'commander';
 import * as commander from 'commander';
 import BaseGenerate from '../generate/BaseGenerate';
