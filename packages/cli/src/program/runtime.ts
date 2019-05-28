@@ -1,6 +1,7 @@
 import { schedules } from './schedules';
-import { runCommand, runInquirer } from './run';
+import { runAction, runCommand, runInquirer } from './run';
 import { BaseCommand, VersionCommand, RazorInquirer, EndCommand } from '../base';
+import { RazorAction } from '../base/RazorAction';
 
 export async function runSchedule() {
   for (let i = 0; i < schedules.length; i++) {
@@ -13,6 +14,8 @@ export async function runSchedule() {
       await runCommand(scheduleInstance);
     } else if (scheduleInstance instanceof RazorInquirer) {
       await runInquirer(scheduleInstance);
+    } else if(scheduleInstance instanceof RazorAction) {
+      await runAction(scheduleInstance);
     }
   }
 }

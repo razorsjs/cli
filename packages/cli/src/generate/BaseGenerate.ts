@@ -67,7 +67,7 @@ export class BaseGenerate extends EventEmitter {
     for (let i in RazorCli.files) {
       const file = RazorCli.files[i];
       if (typeof file === 'string') {
-        copy(file, RazorCli.targetDir);
+        await copy(file, RazorCli.targetDir + `/${i}`);
       } else if (typeof file === 'function') {
 
       }
@@ -77,11 +77,11 @@ export class BaseGenerate extends EventEmitter {
   @log('Installing project. This might take a while...')
   async run() {
     /* prepare */
-    this.prepareDownload();
+    await this.prepareDownload();
     /* install npm package */
-    this.install();
+    await this.install();
     /* generate base file */
-    this.generateFile();
+    await this.generateFile();
     /* execute order */
     await this.executeOrder();
   }

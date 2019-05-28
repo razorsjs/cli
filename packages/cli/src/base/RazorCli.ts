@@ -28,11 +28,7 @@ export class RazorCli extends EventEmitter {
     this.version = version;
     this.createConfig = {};
     this.targetDir = path.resolve('./');
-    this.files = {
-      '.editorconfig': '',
-      '..gitignore': '',
-      '.prettierrc': '',
-    };
+    this.files = {};
   }
 }
 
