@@ -1,4 +1,8 @@
 import { BaseCommand } from '../base';
+import {runSchedule} from '../program/runtime';
+import { CreateInquirer, TypescriptInquirer } from '../inquirer';
+import { BasePresetAction } from '../action/basePresetAction';
+import { GenerateAction } from '../action/generateAction';
 
 export class CreateCommand extends BaseCommand {
   name: string = 'create';
@@ -8,5 +12,14 @@ export class CreateCommand extends BaseCommand {
     super();
   }
 
-  action() {}
+  async action() {
+    await runSchedule([
+      /*inquirer*/
+      CreateInquirer,
+      TypescriptInquirer,
+      /*action*/
+      BasePresetAction,
+      GenerateAction
+    ])
+  }
 }

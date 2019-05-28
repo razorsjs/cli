@@ -38,10 +38,6 @@ export abstract class EndCommand extends EventEmitter {
     super();
     this.program = program;
   }
-
-  end() {
-    BaseGenerate.generate();
-  }
 }
 
 export type RazorCommand = BaseCommand | VersionCommand | EndCommand;

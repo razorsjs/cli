@@ -1,6 +1,5 @@
 import { RazorCommand, BaseCommand, VersionCommand, EndCommand } from '../base';
 import { RazorInquirer } from '../base';
-import { async } from 'rxjs/internal/scheduler/async';
 import { RazorAction } from '../base/RazorAction';
 
 export function runCommand<T extends RazorCommand>(command: T) {
@@ -14,9 +13,9 @@ export function runCommand<T extends RazorCommand>(command: T) {
     command
       .program
       .version(command.version)
-      .parse(process.argv);
+      .usage('<command> [options]')
   } else if (command instanceof EndCommand) {
-    command.end();
+    command.program.parse(process.argv);
   } else {
     throw new Error('command must be a subclass of RazorCommand');
   }

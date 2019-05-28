@@ -1,8 +1,8 @@
 import { VersionCommand } from '../base';
-import { version } from '../../package.json';
+import RazorCli from '../base/RazorCli'
 
 export class Version extends VersionCommand {
-  version: string = '';
+  version: string = RazorCli.version;
 
   constructor() {
     super();

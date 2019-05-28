@@ -1,16 +1,10 @@
 import { CreateCommand, Version, End } from '../command';
-import { CreateInquirer, TypescriptInquirer } from '../inquirer';
-import { BasePresetAction } from '../action/basePresetAction';
 
-export const schedules = [
-  /*command*/
-  CreateCommand,
-  /*inquirer*/
-  CreateInquirer,
-  TypescriptInquirer,
+export const mainSchedules = [
   /*version*/
   Version,
-  /*action*/
-  BasePresetAction,
+  /*command*/
+  CreateCommand,
+  /*end*/
   End,
 ];

@@ -3,6 +3,9 @@ import { ICreateConfig } from '../../@types/razorCli';
 import { EventEmitter } from 'events';
 import path from 'path'
 
+/**
+ * The singleton of razorCli
+ */
 export class RazorCli extends EventEmitter {
   /**
    * version of razorCli
