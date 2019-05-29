@@ -68,8 +68,8 @@ export class BaseGenerate extends EventEmitter {
       const file = RazorCli.files[i];
       if (typeof file === 'string') {
         await copy(file, RazorCli.targetDir + `/${i}`);
-      } else if (typeof file === 'function') {
-
+      } else if (typeof file === 'object') {
+        await writeFile(file.path, await file.content(), 'utf-8')
       }
     }
   }

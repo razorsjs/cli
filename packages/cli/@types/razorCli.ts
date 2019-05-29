@@ -1,3 +1,5 @@
+import { $Function } from './index';
+
 export interface ICreateConfig {
   projectType?: 'project' | 'lerna-project' | 'lerna-package',
   useTypescript?: boolean
@@ -21,4 +23,9 @@ export interface INpmPackage {
 export interface IOrder {
   command: string,
   args?: string[]
+}
+
+export interface IFile {
+  path: string
+  content?: $Function
 }

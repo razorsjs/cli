@@ -1,8 +1,7 @@
 import { BaseCommand } from '../base';
-import {runSchedule} from '../program/runtime';
+import { runSchedule } from '../program/runtime';
 import { CreateInquirer, TypescriptInquirer } from '../inquirer';
-import { BasePresetAction } from '../action/basePresetAction';
-import { GenerateAction } from '../action/generateAction';
+import { BasePresetAction, GenerateAction, TypescriptAction } from '../action';
 
 export class CreateCommand extends BaseCommand {
   name: string = 'create';
@@ -19,7 +18,8 @@ export class CreateCommand extends BaseCommand {
       TypescriptInquirer,
       /*action*/
       BasePresetAction,
-      GenerateAction
-    ])
+      TypescriptAction,
+      GenerateAction,
+    ]);
   }
 }
