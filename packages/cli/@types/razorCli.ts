@@ -1,8 +1,11 @@
 import { $Function } from './index';
 
 export interface ICreateConfig {
+  /*name of project*/
+  name?: string,
   projectType?: 'project' | 'lerna-project' | 'lerna-package',
-  useTypescript?: boolean
+  useTypescript?: boolean,
+  npmClient?: string
 }
 
 export interface IRazorPkg {

@@ -18,7 +18,7 @@ export class BaseGenerate extends EventEmitter {
   generate(): void {
     generateConfig.init();
     generateConfig.orderList.push({
-      command: generateConfig.npmClient,
+      command: config.npmClient || 'npm',
       args: ['install'],
     });
     this.generateProject(config.projectType);
@@ -45,7 +45,7 @@ export class BaseGenerate extends EventEmitter {
 
   async prepareDownload() {
     Object.assign(generateConfig.pkg, {
-      name: 'test',
+      name: config.name,
       private: true,
     });
     await writeFile('./package.json', JSON.stringify(generateConfig.pkg, null, 2), 'utf-8');

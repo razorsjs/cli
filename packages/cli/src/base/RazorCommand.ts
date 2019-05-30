@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import * as commander from 'commander';
 import BaseGenerate from '../generate/BaseGenerate';
-import { EventEmitter } from "events";
+import { EventEmitter } from 'events';
 
 const program = new commander.Command();
 
@@ -9,9 +9,10 @@ export abstract class BaseCommand extends EventEmitter {
   abstract name: string;
   abstract description: string;
 
-  abstract action(): void;
+  abstract action(name?: string, cmd?: any): void;
 
   public program: Command;
+  public options: any
 
   protected constructor() {
     super();

@@ -4,16 +4,22 @@ import { RazorAction } from '../base/RazorAction';
 
 export function runCommand<T extends RazorCommand>(command: T) {
   if (command instanceof BaseCommand) {
-    command
-      .program
-      .command(command.name)
-      .description(command.description)
-      .action(command.action);
+    let program =
+      command
+        .program
+        .command(command.name)
+        .description(command.description);
+    if (command.options.length !== 0) {
+      program = command.options.reduce((pre, value) => {
+        return pre.option.apply(pre, value);
+      }, program);
+    }
+    program.action(command.action);
   } else if (command instanceof VersionCommand) {
     command
       .program
       .version(command.version)
-      .usage('<command> [options]')
+      .usage('<command> [options]');
   } else if (command instanceof EndCommand) {
     command.program.parse(process.argv);
   } else {

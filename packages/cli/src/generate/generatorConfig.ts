@@ -8,7 +8,6 @@ export class GeneratorConfig {
     dependencies: {},
     devDependencies: {},
   };
-  public npmClient: string = 'npm';
   /**
    * the orders which run after install
    */
@@ -17,7 +16,7 @@ export class GeneratorConfig {
   /**
    * targetDir
    */
-  public targetDir: string = './'
+  public targetDir: string = './';
 
   constructor() {
 
