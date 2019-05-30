@@ -6,6 +6,8 @@ import { log } from '../utils/decorators/Log';
 import RazorCli from '../base/RazorCli';
 import { executeCommand } from '../util/execa';
 import { writeFile, copy } from '../util/file';
+import { sortObject } from '../util/sortObject';
+import { jsonStringify } from '../util/stringify';
 
 const config = RazorCli.createConfig;
 
@@ -48,7 +50,7 @@ export class BaseGenerate extends EventEmitter {
       name: config.name,
       private: true,
     });
-    await writeFile('./package.json', JSON.stringify(generateConfig.pkg, null, 2), 'utf-8');
+    await writeFile('./package.json', jsonStringify(sortObject(generateConfig.pkg)), 'utf-8');
   }
 
   async install() {
@@ -69,7 +71,7 @@ export class BaseGenerate extends EventEmitter {
       if (typeof file === 'string') {
         await copy(file, RazorCli.targetDir + `/${i}`);
       } else if (typeof file === 'object') {
-        await writeFile(file.path, await file.content(), 'utf-8')
+        await writeFile(file.path, await file.content(), 'utf-8');
       }
     }
   }
