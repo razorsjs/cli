@@ -2,7 +2,7 @@ import { BaseCommand } from '../base';
 import RazorCli from '../base/RazorCli';
 import { runSchedule } from '../program/runtime';
 import { CreateInquirer, TypescriptInquirer } from '../inquirer';
-import { BasePresetAction, GenerateAction, TypescriptAction, CreateProjectAction } from '../action';
+import { BasePresetAction, GenerateAction, TypescriptAction, CreateProjectAction, BabelAction } from '../action';
 
 export class CreateCommand extends BaseCommand {
   name: string = 'create <app-name>';
@@ -27,6 +27,7 @@ export class CreateCommand extends BaseCommand {
       CreateProjectAction,
       BasePresetAction,
       TypescriptAction,
+      BabelAction,
       GenerateAction,
     ]);
   }

@@ -13,11 +13,6 @@ export class GeneratorConfig {
    */
   public orderList: IOrder[] = [];
 
-  /**
-   * targetDir
-   */
-  public targetDir: string = './';
-
   constructor() {
 
   }
