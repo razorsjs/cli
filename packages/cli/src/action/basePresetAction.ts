@@ -13,7 +13,7 @@ export class BasePresetAction extends RazorAction {
   action() {
     this.fileList.forEach(file => {
       const filePath = this.prefix + (file === '.gitignore' ? '.##gitignore##' : file);
-      RazorCli.files[file] = path.resolve(RazorCli.targetDir, filePath);
+      RazorCli.files[file] = RazorCli.resolveDir(filePath)
     });
   }
 }

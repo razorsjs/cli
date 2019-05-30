@@ -33,6 +33,10 @@ export class RazorCli extends EventEmitter {
     this.targetDir = path.resolve('./');
     this.files = {};
   }
+
+  resolveDir(filePath) {
+    return path.resolve(this.targetDir, filePath)
+  }
 }
 
 export default new RazorCli();

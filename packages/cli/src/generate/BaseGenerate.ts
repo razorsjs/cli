@@ -5,7 +5,7 @@ import { presetsBase, lerna, typescript } from '../constant';
 import { log } from '../utils/decorators/Log';
 import RazorCli from '../base/RazorCli';
 import { executeCommand } from '../util/execa';
-import { writeFile, copy } from '../util/file';
+import { writeFile, copy, mkdirp } from '../util/file';
 import { sortObject } from '../util/sortObject';
 import { jsonStringify } from '../util/stringify';
 
@@ -17,25 +17,26 @@ export class BaseGenerate extends EventEmitter {
     super();
   }
 
-  generate(): void {
+  async generate() {
     generateConfig.init();
+    await this.generateProject(config.projectType);
+    if (config.useTypescript) {
+      this.generateTypescript();
+    }
+    await this.run();
+  }
+
+  async generateProject(type: any) {
+    /*add command: npm install*/
     generateConfig.orderList.push({
       command: config.npmClient || 'npm',
       args: ['install'],
     });
-    this.generateProject(config.projectType);
-    if (config.useTypescript) {
-      this.generateTypescript();
-    }
-    this.run();
-  }
-
-  generateProject(type: any) {
     generateConfig.push(presetsBase);
     if (type === EProjectType.LPROJECT) {
       generateConfig.push(lerna);
       generateConfig.orderList.push({
-        command: '../node_modules/.bin/lerna',
+        command: RazorCli.resolveDir('node_modules/.bin/lerna'),
         args: ['init'],
       });
     }
@@ -50,18 +51,18 @@ export class BaseGenerate extends EventEmitter {
       name: config.name,
       private: true,
     });
-    await writeFile('./package.json', jsonStringify(sortObject(generateConfig.pkg)), 'utf-8');
+    await writeFile(RazorCli.resolveDir('package.json'), jsonStringify(sortObject(generateConfig.pkg)), 'utf-8');
   }
 
   async install() {
     const order = (generateConfig.orderList.shift()) as any;
-    await executeCommand(order.command, order.args);
+    await executeCommand(order.command, order.args, RazorCli.targetDir);
   }
 
   async executeOrder() {
     for (let i = 0; i < generateConfig.orderList.length; i++) {
       const order = generateConfig.orderList[i];
-      await executeCommand(order.command, order.args);
+      await executeCommand(order.command, order.args, RazorCli.targetDir);
     }
   }
 

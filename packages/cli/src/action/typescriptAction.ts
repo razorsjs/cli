@@ -6,10 +6,10 @@ import { jsonStringify } from '../util/stringify';
 export class TypescriptAction extends RazorAction {
   fileList = {
     'tsconfig.json': {
-      path: path.resolve(RazorCli.targetDir, 'tsconfig.json'),
+      path: RazorCli.resolveDir('tsconfig.json'),
       content: function() {
         return jsonStringify({
-          'extends': path.resolve(RazorCli.targetDir, 'node_modules/@razors/presets-typescript/tsconfig.json'),
+          'extends': RazorCli.resolveDir('node_modules/@razors/presets-typescript/tsconfig.json'),
         });
       },
     },
