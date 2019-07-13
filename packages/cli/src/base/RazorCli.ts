@@ -1,7 +1,8 @@
 import { version } from '../../package.json';
 import { ICreateConfig } from '../../@types/razorCli';
 import { EventEmitter } from 'events';
-import path from 'path'
+import path from 'path';
+import { GeneratorConfig } from '../generate/generatorConfig';
 
 /**
  * The singleton of razorCli
@@ -12,9 +13,13 @@ export class RazorCli extends EventEmitter {
    */
   public version: string;
   /**
-   * generated config
+   * the create config, will be stored
    */
   public createConfig: ICreateConfig;
+  /**
+   * the generated json, will not be stored
+   */
+  public generatorConfig: GeneratorConfig;
   /**
    * the dir where project created in
    */
@@ -30,12 +35,13 @@ export class RazorCli extends EventEmitter {
 
     this.version = version;
     this.createConfig = {};
+    this.generatorConfig = new GeneratorConfig();
     this.targetDir = path.resolve('./');
     this.files = {};
   }
 
   resolveDir(filePath) {
-    return path.resolve(this.targetDir, filePath)
+    return path.resolve(this.targetDir, filePath);
   }
 }
 

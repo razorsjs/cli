@@ -1,4 +1,4 @@
-/*copy for temporary*/
+/*add babel to*/
 import { RazorAction } from '../base/RazorAction';
 import RazorCli from '../base/RazorCli';
 import generateConfig from '../generate/generatorConfig'

@@ -5,6 +5,7 @@ export const mainSchedules = [
   Version,
   /*create command*/
   CreateCommand,
+  /*add commitlint command*/
   /*end*/
   End,
 ];

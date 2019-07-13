@@ -1,13 +1,11 @@
+/* the config used for generating, does not store*/
 import { INpmPackage, IOrder, IRazorPkg } from '../../@types/razorCli';
 
 export class GeneratorConfig {
   /**
    * package.json
    */
-  public pkg: IRazorPkg = {
-    dependencies: {},
-    devDependencies: {},
-  };
+  public pkg: IRazorPkg = {};
   /**
    * the orders which run after install
    */

@@ -13,8 +13,12 @@ export interface IRazorPkg {
   version?: string
   dependencies?: object,
   devDependencies?: object,
+  // in lerna project root, it will be true
   private?: boolean
   scripts?: object
+  // husky: 🐶 Git hooks made easy
+  // https://github.com/typicode/husky
+  husky?: object
 }
 
 export interface INpmPackage {
