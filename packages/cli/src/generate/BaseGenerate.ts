@@ -4,10 +4,7 @@ import generateConfig from './generatorConfig';
 import { presetsBase, lerna, typescript } from '../constant';
 import { log } from '../utils/decorators/Log';
 import RazorCli from '../base/RazorCli';
-import { executeCommand } from '../util/execa';
-import { writeFile, copy, mkdirp } from '../util/file';
-import { sortObject } from '../util/sortObject';
-import { jsonStringify } from '../util/stringify';
+import { sortObject, writeFile, copy, executeCommand, jsonStringify } from '@razors/cli-plugin-util';
 
 const config = RazorCli.createConfig;
 

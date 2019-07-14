@@ -3,6 +3,7 @@ import { ICreateConfig } from '../../@types/razorCli';
 import { EventEmitter } from 'events';
 import path from 'path';
 import { GeneratorConfig } from '../generate/generatorConfig';
+import { IRazorPlugin } from '../../@types/razorPlugin';
 
 /**
  * The singleton of razorCli
@@ -21,7 +22,7 @@ export class RazorCli extends EventEmitter {
    */
   public generatorConfig: GeneratorConfig;
   /**
-   * the dir where project created in
+   * the dir where project is created in
    */
   public targetDir: string;
 
@@ -29,6 +30,12 @@ export class RazorCli extends EventEmitter {
    * the file need to be created or copied
    */
   public files: object;
+
+  /**
+   * key: action name
+   * value: class extends from base action
+   */
+  public action: object;
 
   constructor() {
     super();
@@ -38,10 +45,29 @@ export class RazorCli extends EventEmitter {
     this.generatorConfig = new GeneratorConfig();
     this.targetDir = path.resolve('./');
     this.files = {};
+    this.action = {};
   }
 
+  /**
+   * init internal action, command
+   */
+  init() {
+    // read from package.json
+  }
+
+  /**
+   * get relative path
+   * @param filePath
+   */
   resolveDir(filePath) {
     return path.resolve(this.targetDir, filePath);
+  }
+
+  /**
+   * use plugin, load plugin on this
+   */
+  use(plugin: IRazorPlugin) {
+    Object.assign(this.action, plugin.action);
   }
 }
 

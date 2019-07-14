@@ -1,4 +1,4 @@
-import { execa } from '../commonUtil';
+import execa from 'execa';
 
 /**
  * execute bash command

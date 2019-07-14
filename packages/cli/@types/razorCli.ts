@@ -1,5 +1,8 @@
 import { $Function } from './index';
 
+/**
+ * create config
+ */
 export interface ICreateConfig {
   /*name of project*/
   name?: string,
@@ -21,6 +24,9 @@ export interface IRazorPkg {
   husky?: object
 }
 
+/**
+ * npm pkg, used for generating package.json
+ */
 export interface INpmPackage {
   name: string,
   dependencies?: string,

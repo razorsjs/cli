@@ -1,14 +1,11 @@
 {
-  "name": "@razors/cli",
+  "name": "@razors/cli-plugin-typescript",
   "version": "0.0.1-alpha.5",
   "description": "cli",
-  "main": "dist/base/index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "bin": {
-    "razor": "dist/index.js"
   },
   "scripts": {
     "type-check": "tsc --noEmit",
@@ -18,14 +15,7 @@
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
-    "@razors/cli-plugin-util": "^0.0.1-alpha.5",
-    "chalk": "^2.4.2",
-    "commander": "^2.20.0",
-    "inquirer": "^6.3.1"
-  },
-  "devDependencies": {
-    "@types/inquirer": "^6.0.2",
-    "@types/node": "^12.0.0"
+    "@razors/cli": "^0.0.1-alpha.5",
+    "@razors/cli-plugin-util": "^0.0.1-alpha.5"
   }
 }

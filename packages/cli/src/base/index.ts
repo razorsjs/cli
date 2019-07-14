@@ -1,4 +1,15 @@
 // all base class
-export * from './RazorCli'
-export * from './RazorCommand'
-export * from './RazorInquirer'
+import RazorCli from './RazorCli';
+import { RazorAction } from './RazorAction';
+import { BaseCommand, EndCommand, VersionCommand, RazorCommand } from './RazorCommand';
+import { RazorInquirer } from './RazorInquirer';
+
+export {
+  RazorCli,
+  RazorAction,
+  BaseCommand,
+  EndCommand,
+  VersionCommand,
+  RazorCommand,
+  RazorInquirer,
+};

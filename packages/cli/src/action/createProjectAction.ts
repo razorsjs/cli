@@ -1,6 +1,6 @@
-import { RazorAction } from '../base/RazorAction';
+import { RazorAction } from '../base';
 import RazorCli from '../base/RazorCli';
-import { mkdirp } from '../util/file';
+import { mkdirp } from '@razors/cli-plugin-util';
 
 const config = RazorCli.createConfig;
 

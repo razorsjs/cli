@@ -1,6 +1,5 @@
-import { RazorAction } from '../base';
-import RazorCli from '../base/RazorCli';
-import { jsonStringify } from '@razors/cli-plugin-util';
+import { RazorAction, RazorCli } from '@razors/cli';
+import { jsonStringify } from '../../cli-plugin-util/src';
 
 export class TypescriptAction extends RazorAction {
   fileList = {
