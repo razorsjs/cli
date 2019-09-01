@@ -1,6 +1,6 @@
 {
   "name": "@razors/cli",
-  "version": "0.0.1-alpha.5",
+  "version": "0.0.1-alpha.6",
   "description": "cli",
   "main": "dist/base/index.js",
   "license": "MIT",
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "@razors/cli-plugin-util": "^0.0.1-alpha.5",
+    "@razors/cli-plugin-util": "^0.0.1-alpha.6",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "inquirer": "^6.3.1"

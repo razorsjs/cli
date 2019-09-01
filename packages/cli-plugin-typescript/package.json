@@ -1,6 +1,6 @@
 {
   "name": "@razors/cli-plugin-typescript",
-  "version": "0.0.1-alpha.5",
+  "version": "0.0.1-alpha.6",
   "description": "cli",
   "main": "dist/index.js",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps"
   },
   "dependencies": {
-    "@razors/cli": "^0.0.1-alpha.5",
-    "@razors/cli-plugin-util": "^0.0.1-alpha.5"
+    "@razors/cli": "^0.0.1-alpha.6",
+    "@razors/cli-plugin-util": "^0.0.1-alpha.6"
   }
 }

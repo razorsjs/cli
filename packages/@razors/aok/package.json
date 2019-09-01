@@ -1,6 +1,6 @@
 {
   "name": "@razors/aok",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.6",
   "main": "dist/index.js",
   "author": "marsprince",
   "license": "MIT",
