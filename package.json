@@ -11,9 +11,7 @@
   },
   "name": "cli",
   "workspaces": [
-    "packages/cli",
-    "packages/cli-plugin-typescript",
-    "packages/cli-plugin-util"
+    "packages/**"
   ],
   "devDependencies": {
     "@babel/cli": "^7.4.4",
