@@ -14,5 +14,6 @@
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\""
-  }
+  },
+  "gitHead": "b0c0b37b7c80da35b61fada45c11c200cecae8c5"
 }
