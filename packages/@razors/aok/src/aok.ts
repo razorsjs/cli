@@ -1,6 +1,10 @@
 import { compose } from './compose';
 
 export class AokContext {
+  app?: any;
+  req?: any;
+  res?: any;
+  onerror?: any;
 }
 
 export class AokRequest {
