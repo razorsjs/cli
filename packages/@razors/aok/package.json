@@ -1,6 +1,6 @@
 {
   "name": "@razors/aok",
-  "version": "0.0.1-alpha.6",
+  "version": "0.0.1-alpha.7",
   "main": "dist/index.js",
   "types": "dist/@types/index.d.ts",
   "author": "marsprince",
