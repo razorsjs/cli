@@ -1,7 +1,7 @@
 {
   "extends": "../../../node_modules/@razors/presets-typescript/tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist",
+    "esModuleInterop": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "noImplicitThis": false,
