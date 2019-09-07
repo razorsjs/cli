@@ -5,6 +5,6 @@ export class AokCliContext extends AokContext {
   constructor() {
     super();
     const delegate = new Delegate(this, 'app');
-    delegate.getter('program').getter('inquirer');
+    delegate.getter('program').getter('inquirer').getter('chalk');
   }
 }

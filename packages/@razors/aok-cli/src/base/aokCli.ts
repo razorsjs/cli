@@ -5,10 +5,12 @@ import { Aok } from '@razors/aok';
 import { ICommand } from '../../@types';
 import { isCommand } from '../util/command';
 import { AokCliContext } from './aokCliContext';
+import chalk, { Chalk } from 'chalk';
 
 export class AokCli extends Aok {
   public program: Command = new commander.Command();
   public inquirer: inquirer.Inquirer = inquirer;
+  public chalk: Chalk = chalk;
 
   constructor() {
     super(new AokCliContext());

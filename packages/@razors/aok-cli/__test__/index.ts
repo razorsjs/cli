@@ -3,7 +3,7 @@ import { AokCli } from '@razors/aok-cli/base/aokCli';
 const app = new AokCli();
 
 app.use(function(ctx, next) {
-  console.log(ctx.program);
+  console.log(ctx.chalk.red('ad'));
   next();
 });
 
