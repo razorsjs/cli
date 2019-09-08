@@ -17,5 +17,8 @@
   },
   "dependencies": {
     "@razors/aok-router": "^0.0.1-alpha.10"
+  },
+  "devDependencies": {
+    "@razors/aok-cli": "^0.0.1-alpha.10"
   }
 }

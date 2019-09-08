@@ -6,6 +6,7 @@ import { ICommand } from '../../@types';
 import { isCommand } from '../util/command';
 import { AokCliContext } from './aokCliContext';
 import chalk, { Chalk } from 'chalk';
+import aokCliRequest from './aokCliRequest';
 
 export class AokCli extends Aok {
   public program: Command = new commander.Command();
@@ -13,7 +14,7 @@ export class AokCli extends Aok {
   public chalk: Chalk = chalk;
 
   constructor() {
-    super(new AokCliContext());
+    super(new AokCliContext(), aokCliRequest);
     this.program.version('0.0.1');
   }
 

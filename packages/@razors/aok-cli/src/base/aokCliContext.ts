@@ -4,7 +4,13 @@ import { AokContext } from '@razors/aok';
 export class AokCliContext extends AokContext {
   constructor() {
     super();
-    const delegate = new Delegate(this, 'app');
-    delegate.getter('program').getter('inquirer').getter('chalk');
+    // delegate app methods
+    new Delegate(this, 'app')
+      .getter('program')
+      .getter('inquirer')
+      .getter('chalk');
+
+    new Delegate(this, 'request').
+      getter('path')
   }
 }

@@ -1,5 +1,6 @@
 import { Layer } from './layer';
 import { IMatched, ILayer } from '../@types';
+import { compose } from '@razors/aok';
 
 // correspond with koa-router
 export const matchedAll = 'matched';
@@ -22,7 +23,7 @@ export class AokRouter {
   routes() {
     const router = this;
     return function(ctx, next) {
-      // get path
+      // get path, ues ctx.path
       const path = ctx.path;
       // get method
       const method = ctx.method;
@@ -42,6 +43,17 @@ export class AokRouter {
       if (mostSpecificLayer.name) {
         ctx[matchedRouteName] = mostSpecificLayer.name;
       }
+      const layerChain = matchedLayers.reduce(function(memo, layer) {
+        // memo.push(function(ctx, next) {
+        //   ctx.captures = layer.captures(path, ctx.captures);
+        //   ctx.params = layer.params(path, ctx.captures, ctx.params);
+        //   ctx.routerName = layer.name;
+        //   return next();
+        // });
+        return memo.concat(layer.stack);
+      }, []);
+
+      return compose(layerChain)(ctx, next);
     };
   }
 
@@ -72,7 +84,7 @@ export class AokRouter {
     return matched;
   }
 
-  register(path, methods, middleware, opts) {
+  register(path, methods: Array<string>, middleware, opts) {
     // support array of paths
     if (Array.isArray(path)) {
       path.forEach((p) => {
