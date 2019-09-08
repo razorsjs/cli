@@ -1,6 +1,6 @@
 {
   "name": "@razors/aok-cli",
-  "version": "0.0.1-alpha.10",
+  "version": "0.0.1-alpha.11",
   "main": "dist/index.js",
   "license": "MIT",
   "dependencies": {

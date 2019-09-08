@@ -1,6 +1,6 @@
 {
   "name": "@razors/aok-router",
-  "version": "0.0.1-alpha.10",
+  "version": "0.0.1-alpha.11",
   "main": "dist/index.js",
   "types": "dist/@types/index.d.ts",
   "author": "marsprince",
