@@ -6,5 +6,9 @@
     "experimentalDecorators": true,
     "noImplicitThis": false,
     "noImplicitAny": false
-  }
+  },
+  "exclude": [
+    "__test__",
+    "dist"
+  ]
 }

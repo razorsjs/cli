@@ -9,6 +9,7 @@
     "declarationDir": "dist/@types"
   },
   "exclude": [
-    "__test__/**/*"
+    "__test__",
+    "dist"
   ]
 }
